@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amiri Luxury Autos</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Importing Luxury Font */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+
+    /* Background Image */
+    body {
+      background: url('BackgroundGT3RS.webp') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      font-family: 'Playfair Display', serif;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: rgba(0, 0, 0, 0.7);
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    .hero p {
+      font-size: 1.4rem;
+      margin-top: 10px;
+    }
+
+    /* Enhanced Rental Form */
+    .rental-form {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: auto;
+      color: black;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .rental-form label {
+      font-weight: 600;
+    }
+    .rental-form textarea {
+      resize: none;
+    }
+
+    /* Why Choose Us Section */
+    .why-choose {
+      background: rgba(255, 255, 255, 0.95);
+      color: black;
+      padding: 25px;
+      margin-top: 60px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .why-choose h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .why-choose p {
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      background: rgba(255, 255, 255, 0.95);
+      color: black;
+      padding: 15px;
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 800px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .filter-bar label {
+      font-weight: 600;
+    }
+
+    /* Inventory Section */
+    .inventory {
+      background: rgba(255, 255, 255, 0.95);
+      color: black;
+      padding: 25px;
+      margin-top: 60px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .inventory h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: black;
+    }
+    .inventory p {
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+
+    /* Required Documents Section */
+    .requirements {
+      background: rgba(255, 255, 255, 0.95);
+      color: black;
+      padding: 25px;
+      margin-top: 60px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .requirements h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .requirements ul {
+      font-size: 1.3rem;
+      font-weight: 500;
+      padding-top: 10px;
+    }
+
+    /* Footer Section */
+    .footer {
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 30px 20px;
+      margin-top: 50px;
+      text-align: center;
+    }
+    .footer h4 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+    .footer p {
+      font-size: 1.2rem;
+    }
+    .footer .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: flex-start;
+    }
+    .footer .footer-section {
+      flex: 1;
+      padding: 10px;
+      min-width: 250px;
+    }
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+    .footer ul li {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    .footer a {
+      color: white;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Social Media Icons */
+    .social-media {
+      margin-left: 15px;
+    }
+    .social-icon {
+      margin: 0 10px;
+    }
+    .social-icon i {
+      font-size: 1.6rem;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      right: 20px;
+    }
+    .navbar-nav a {
+      color: white !important;
+    }
+    .navbar-nav a:hover {
+      color: #ddd !important;
+    }
+
+    /* Inventory Combined Box for Each Car */
+    .inventory-combined {
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid #aaa;
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      border-radius: 8px;
+      overflow: hidden;
+      margin: auto;
+      max-width: 800px;
+    }
+    /* Car Images Slideshow in Combined Box */
+    .inventory-combined .car-images {
+      flex: 1;
+      position: relative;
+      height: 250px;
+    }
+    .inventory-combined .car-images img {
+      width: 100%;
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+      height: 100%;
+    }
+    .inventory-combined .car-images img:first-child {
+      display: block;
+    }
+    .inventory-combined .car-images .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      user-select: none;
+      z-index: 2;
+    }
+    .inventory-combined .car-images .arrow-left {
+      left: 10px;
+    }
+    .inventory-combined .car-images .arrow-right {
+      right: 10px;
+    }
+    /* Vehicle Info inside Combined Box */
+    .inventory-combined .vehicle-info {
+      flex: 1;
+      padding: 10px 15px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .inventory-combined .vehicle-info p {
+      margin: 5px 0;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    .inventory-combined .vehicle-info p strong {
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Amiri Luxury Autos</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#inventory">Inventory</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+          <li class="nav-item social-media">
+            <a class="nav-link" href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f social-icon"></i></a>
+          </li>
+          <li class="nav-item social-media">
+            <a class="nav-link" href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram social-icon"></i></a>
+          </li>
+          <li class="nav-item social-media">
+            <a class="nav-link" href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok social-icon"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Are You Looking To Rent Luxury Cars in Spokane?</h1>
+    <p>Experience premium car rentals with Amiri Luxury Autos.</p>
+  </section>
+
+  <!-- Enhanced Rental Form -->
+  <div class="rental-form container mt-4">
+    <form>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <input type="text" class="form-control" placeholder="Full Name" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <input type="email" class="form-control" placeholder="Email" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <input type="tel" class="form-control" placeholder="Mobile No." required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <label for="vehicleSelect" class="form-label">Vehicle Preference</label>
+          <select id="vehicleSelect" class="form-select">
+            <option value="any">Any Vehicle</option>
+            <option value="BMW M3 Competition">BMW M3 Competition</option>
+            <option value="BMW M4 Competition">BMW M4 Competition</option>
+            <option value="Mercedes G63 AMG">Mercedes G63 AMG</option>
+            <option value="Mercedes S500">Mercedes S500</option>
+            <option value="Audi R8">Audi R8</option>
+            <option value="Audi RS7">Audi RS7</option>
+            <option value="Porsche GT3 RS">Porsche GT3 RS</option>
+            <option value="Rolls-Royce Cullinan">Rolls-Royce Cullinan</option>
+            <option value="Rolls-Royce Wraith">Rolls-Royce Wraith</option>
+            <option value="Lamborghini Aventador">Lamborghini Aventador</option>
+            <option value="Lamborghini Urus">Lamborghini Urus</option>
+            <option value="Bentley Flying Spur S">Bentley Flying Spur S</option>
+            <option value="Ferrari SF90 Stradale">Ferrari SF90 Stradale</option>
+            <option value="Ferrari 812 Superfast">Ferrari 812 Superfast</option>
+          </select>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="pickupDate" class="form-label">Pickup Date</label>
+          <input type="date" id="pickupDate" class="form-control" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="dropoffDate" class="form-label">Dropoff Date</label>
+          <input type="date" id="dropoffDate" class="form-control" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <textarea class="form-control" placeholder="Additional Information or Requests" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary w-100">Request Booking</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Why Choose Us Section -->
+  <div class="why-choose container text-center">
+    <h2>Why Choose Amiri Luxury Autos?</h2>
+    <p>We offer the finest selection of high-end luxury and exotic vehicles in Spokane.  
+      Whether you're looking for a sleek sports car, a powerful SUV, or a sophisticated sedan, we provide top-tier service, 
+      hassle-free rentals, and an unforgettable driving experience.</p>
+  </div>
+
+  <!-- Inventory Section -->
+  <div id="inventory" class="inventory container text-center">
+    <h3>Our Inventory</h3>
+    
+    <!-- Filter Bar -->
+    <div class="filter-bar container">
+      <div class="row">
+        <div class="col-md-3">
+          <label for="minPrice" class="form-label">Min Price ($)</label>
+          <input type="number" id="minPrice" class="form-control" placeholder="Min Price">
+        </div>
+        <div class="col-md-3">
+          <label for="maxPrice" class="form-label">Max Price ($)</label>
+          <input type="number" id="maxPrice" class="form-control" placeholder="Max Price">
+        </div>
+        <div class="col-md-3">
+          <label for="brandFilter" class="form-label">Brand</label>
+          <select id="brandFilter" class="form-select">
+            <option value="all">All</option>
+            <option value="BMW">BMW</option>
+            <option value="Mercedes-Benz">Mercedes-Benz</option>
+            <option value="Audi">Audi</option>
+            <option value="Porsche">Porsche</option>
+            <option value="Rolls-Royce">Rolls-Royce</option>
+            <option value="Lamborghini">Lamborghini</option>
+            <option value="Bentley">Bentley</option>
+            <option value="Ferrari">Ferrari</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <label for="seatsFilter" class="form-label">Seats</label>
+          <select id="seatsFilter" class="form-select">
+            <option value="all">All</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">
+          <button class="btn btn-secondary" onclick="applyFilter()">Apply Filter</button>
+          <button class="btn btn-secondary" onclick="resetFilter()">Reset Filter</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Inventory Rows -->
+    <div class="row">
+      <!-- Car 1: BMW M3 Competition (Green) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="BMW" data-price="400" data-seats="5">
+          <div class="car-images">
+            <img src="Images/BMW F.avif" alt="BMW M3 Front View">
+            <img src="Images/BMW S.avif" alt="BMW M3 Side View">
+            <img src="Images/BMW Int.avif" alt="BMW M3 Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 0)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 0)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> BMW</p>
+            <p><strong>Model:</strong> M3 Competition</p>
+            <p><strong>Color:</strong> Green</p>
+            <p><strong>Engine:</strong> 3.0L Twin-Turbo Inline 6</p>
+            <p><strong>Transmission:</strong> 8-Speed Automatic</p>
+            <p><strong>Seats:</strong> 5</p>
+            <p><strong>Price Per Day:</strong> $400</p>
+          </div>
+        </div>
+      </div>
+      <!-- Car 2: BMW M4 Competition (Blue) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="BMW" data-price="450" data-seats="4">
+          <div class="car-images">
+            <img src="Images/M4F.avif" alt="BMW M4 Front View">
+            <img src="Images/M4S.avif" alt="BMW M4 Side View">
+            <img src="Images/M4B.avif" alt="BMW M4 Back View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 1)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 1)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> BMW</p>
+            <p><strong>Model:</strong> M4 Competition</p>
+            <p><strong>Color:</strong> Blue</p>
+            <p><strong>Engine:</strong> 3.0L Twin-Turbo Inline 6</p>
+            <p><strong>Transmission:</strong> 8-Speed Automatic</p>
+            <p><strong>Seats:</strong> 4</p>
+            <p><strong>Price Per Day:</strong> $450</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Second Row: Mercedes G63 and S500 -->
+    <div class="row">
+      <!-- Car 3: Mercedes G63 AMG (Blue) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="Mercedes-Benz" data-price="600" data-seats="5">
+          <div class="car-images">
+            <img src="Images/G63F.avif" alt="Mercedes G63 Front View">
+            <img src="Images/G63S.avif" alt="Mercedes G63 Side View">
+            <img src="Images/G63int.avif" alt="Mercedes G63 Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 2)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 2)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> Mercedes-Benz</p>
+            <p><strong>Model:</strong> G63 AMG</p>
+            <p><strong>Color:</strong> Blue</p>
+            <p><strong>Engine:</strong> 4.0L V8 Biturbo</p>
+            <p><strong>Transmission:</strong> 9-Speed Automatic</p>
+            <p><strong>Seats:</strong> 5</p>
+            <p><strong>Price Per Day:</strong> $600</p>
+          </div>
+        </div>
+      </div>
+      <!-- Car 4: Mercedes S500 (Black) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="Mercedes-Benz" data-price="550" data-seats="5">
+          <div class="car-images">
+            <img src="Images/SF.avif" alt="Mercedes S500 Front View">
+            <img src="Images/SB.avif" alt="Mercedes S500 Side View">
+            <img src="Images/Sint.avif" alt="Mercedes S500 Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 3)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 3)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> Mercedes-Benz</p>
+            <p><strong>Model:</strong> S500</p>
+            <p><strong>Color:</strong> Black</p>
+            <p><strong>Engine:</strong> 4.7L V8 Biturbo</p>
+            <p><strong>Transmission:</strong> 7-Speed Automatic</p>
+            <p><strong>Seats:</strong> 5</p>
+            <p><strong>Price Per Day:</strong> $550</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Third Row: Audi R8 and Audi RS7 -->
+    <div class="row">
+      <!-- Car 5: Audi R8 (White) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="Audi" data-price="800" data-seats="2">
+          <div class="car-images">
+            <img src="Images/R8F.avif" alt="Audi R8 Front View">
+            <img src="Images/R8B.avif" alt="Audi R8 Back View">
+            <img src="Images/R8int.avif" alt="Audi R8 Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 4)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 4)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> Audi</p>
+            <p><strong>Model:</strong> R8</p>
+            <p><strong>Color:</strong> White</p>
+            <p><strong>Engine:</strong> 5.2L V10</p>
+            <p><strong>Transmission:</strong> 7-Speed Dual-Clutch</p>
+            <p><strong>Seats:</strong> 2</p>
+            <p><strong>Price Per Day:</strong> $800</p>
+          </div>
+        </div>
+      </div>
+      <!-- Car 6: Audi RS7 (Blue) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="Audi" data-price="600" data-seats="5">
+          <div class="car-images">
+            <img src="Images/RS7F.avif" alt="Audi RS7 Front View">
+            <img src="Images/RS7B.avif" alt="Audi RS7 Back View">
+            <img src="Images/RS7int.avif" alt="Audi RS7 Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 5)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 5)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> Audi</p>
+            <p><strong>Model:</strong> RS7</p>
+            <p><strong>Color:</strong> Blue</p>
+            <p><strong>Engine:</strong> 4.0L V8 Twin-Turbo</p>
+            <p><strong>Transmission:</strong> 8-Speed Automatic</p>
+            <p><strong>Seats:</strong> 5</p>
+            <p><strong>Price Per Day:</strong> $600</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fourth Row: GT3 RS and RR Cullinan -->
+    <div class="row">
+      <!-- Car 7: GT3 RS (Yellow) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="Porsche" data-price="750" data-seats="2">
+          <div class="car-images">
+            <img src="Images/GT3RSF.avif" alt="GT3 RS Front View">
+            <img src="Images/GT3RSB.avif" alt="GT3 RS Back View">
+            <img src="Images/GT3RSI.avif" alt="GT3 RS Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 6)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 6)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> Porsche</p>
+            <p><strong>Model:</strong> GT3 RS</p>
+            <p><strong>Color:</strong> Yellow</p>
+            <p><strong>Engine:</strong> 4.0L Flat-6</p>
+            <p><strong>Transmission:</strong> 7-Speed PDK</p>
+            <p><strong>Seats:</strong> 2</p>
+            <p><strong>Price Per Day:</strong> $750</p>
+          </div>
+        </div>
+      </div>
+      <!-- Car 8: RR Cullinan (Blue) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="Rolls-Royce" data-price="1200" data-seats="5">
+          <div class="car-images">
+            <img src="Images/RRCF.avif" alt="RR Cullinan Front View">
+            <img src="Images/RRCS.jpg" alt="RR Cullinan Side View">
+            <img src="Images/RRCI.webp" alt="RR Cullinan Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 7)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 7)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> Rolls-Royce</p>
+            <p><strong>Model:</strong> Cullinan</p>
+            <p><strong>Color:</strong> Blue</p>
+            <p><strong>Engine:</strong> 6.75L V12</p>
+            <p><strong>Transmission:</strong> 8-Speed Automatic</p>
+            <p><strong>Seats:</strong> 5</p>
+            <p><strong>Price Per Day:</strong> $1200</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fifth Row: RR Wraith and Lambo Aventador -->
+    <div class="row">
+      <!-- Car 9: RR Wraith (Silver) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="Rolls-Royce" data-price="1100" data-seats="4">
+          <div class="car-images">
+            <img src="Images/RRWF.avif" alt="RR Wraith Front View">
+            <img src="Images/RRWS.avif" alt="RR Wraith Side View">
+            <img src="Images/RRWI.avif" alt="RR Wraith Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 8)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 8)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> Rolls-Royce</p>
+            <p><strong>Model:</strong> Wraith</p>
+            <p><strong>Color:</strong> Silver</p>
+            <p><strong>Engine:</strong> 6.6L V12</p>
+            <p><strong>Transmission:</strong> 8-Speed Automatic</p>
+            <p><strong>Seats:</strong> 4</p>
+            <p><strong>Price Per Day:</strong> $1100</p>
+          </div>
+        </div>
+      </div>
+      <!-- Car 10: Lambo Aventador (Blue) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="Lamborghini" data-price="1500" data-seats="2">
+          <div class="car-images">
+            <img src="Images/AvenF.avif" alt="Lambo Aventador Front View">
+            <img src="Images/AvenS.avif" alt="Lambo Aventador Side View">
+            <img src="Images/AvenI.avif" alt="Lambo Aventador Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 9)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 9)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> Lamborghini</p>
+            <p><strong>Model:</strong> Aventador</p>
+            <p><strong>Color:</strong> Blue</p>
+            <p><strong>Engine:</strong> 6.5L V12</p>
+            <p><strong>Transmission:</strong> 7-Speed Automated Manual</p>
+            <p><strong>Seats:</strong> 2</p>
+            <p><strong>Price Per Day:</strong> $1500</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Sixth Row: Urus and Bentley Flying Spur S -->
+    <div class="row">
+      <!-- Car 11: Urus (Green) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="Lamborghini" data-price="900" data-seats="5">
+          <div class="car-images">
+            <img src="Images/UrusF.avif" alt="Urus Front View">
+            <img src="Images/UrusS.avif" alt="Urus Side View">
+            <img src="Images/UrusI.avif" alt="Urus Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 10)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 10)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> Lamborghini</p>
+            <p><strong>Model:</strong> Urus</p>
+            <p><strong>Color:</strong> Green</p>
+            <p><strong>Engine:</strong> 4.0L Twin-Turbo V8</p>
+            <p><strong>Transmission:</strong> 8-Speed Automatic</p>
+            <p><strong>Seats:</strong> 5</p>
+            <p><strong>Price Per Day:</strong> $900</p>
+          </div>
+        </div>
+      </div>
+      <!-- Car 12: Bentley Flying Spur S (Gray) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="Bentley" data-price="1000" data-seats="5">
+          <div class="car-images">
+            <img src="Images/Bentf.avif" alt="Bentley Flying Spur Front View">
+            <img src="Images/BentS.avif" alt="Bentley Flying Spur Side View">
+            <img src="Images/BentI.avif" alt="Bentley Flying Spur Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 11)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 11)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> Bentley</p>
+            <p><strong>Model:</strong> Flying Spur S</p>
+            <p><strong>Color:</strong> Gray</p>
+            <p><strong>Engine:</strong> 6.0L W12 Twin-Turbo</p>
+            <p><strong>Transmission:</strong> 8-Speed Automatic</p>
+            <p><strong>Seats:</strong> 5</p>
+            <p><strong>Price Per Day:</strong> $1000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Seventh Row: SF90 Stradale and Ferrari 812 -->
+    <div class="row">
+      <!-- Car 13: SF90 Stradale (Red) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="Ferrari" data-price="2000" data-seats="2">
+          <div class="car-images">
+            <img src="Images/sf90F.avif" alt="SF90 Stradale Front View">
+            <img src="Images/sf90S.avif" alt="SF90 Stradale Side View">
+            <img src="Images/sf90I.avif" alt="SF90 Stradale Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 12)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 12)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> Ferrari</p>
+            <p><strong>Model:</strong> SF90 Stradale</p>
+            <p><strong>Color:</strong> Red</p>
+            <p><strong>Engine:</strong> 4.0L V8 Twin-Turbo Hybrid</p>
+            <p><strong>Transmission:</strong> 8-Speed Dual-Clutch</p>
+            <p><strong>Seats:</strong> 2</p>
+            <p><strong>Price Per Day:</strong> $2000</p>
+          </div>
+        </div>
+      </div>
+      <!-- Car 14: Ferrari 812 (Blue) -->
+      <div class="col-md-6 mb-4">
+        <div class="inventory-combined" data-brand="Ferrari" data-price="1800" data-seats="2">
+          <div class="car-images">
+            <img src="Images/812F.avif" alt="Ferrari 812 Front View">
+            <img src="Images/812S.avif" alt="Ferrari 812 Side View">
+            <img src="Images/812I.avif" alt="Ferrari 812 Interior View">
+            <span class="arrow arrow-left" onclick="changeImage('left', 13)">&lt;</span>
+            <span class="arrow arrow-right" onclick="changeImage('right', 13)">&gt;</span>
+          </div>
+          <div class="vehicle-info">
+            <p><strong>Make:</strong> Ferrari</p>
+            <p><strong>Model:</strong> 812 Superfast</p>
+            <p><strong>Color:</strong> Blue</p>
+            <p><strong>Engine:</strong> 6.5L V12</p>
+            <p><strong>Transmission:</strong> 7-Speed Dual-Clutch</p>
+            <p><strong>Seats:</strong> 2</p>
+            <p><strong>Price Per Day:</strong> $1800</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Required Documents Section -->
+<div class="requirements container text-center">
+  <h3>What Documents Are Required To Rent A Car in Spokane?</h3>
+  <ul class="list-unstyled">
+    <li>✅ Age: 21+</li>
+    <li>✅ Valid Driver's License</li>
+    <li>✅ Credit/Debit Card for Security Deposit</li>
+  </ul>
+</div>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-content container">
+    <div class="footer-section">
+      <h4>If you're looking to rent the latest luxury cars, Amiri Luxury Autos is your premier destination.</h4>
+      <p>We provide an unmatched selection of high-end vehicles, world-class customer service,  
+         and a seamless rental experience designed to exceed expectations.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Car Brands</h4>
+      <ul>
+        <li>BMW</li>
+        <li>Mercedes-Benz</li>
+        <li>Audi</li>
+        <li>Porsche</li>
+        <li>Rolls Royce</li>
+        <li>Lamborghini</li>
+        <li>Bentley</li>
+        <li>Ferrari</li>
+      </ul>
+    </div>
+    <div class="footer-section" id="contact">
+      <h4>Contact Us</h4>
+      <p>Email: contact@amiriluxuryautos.com</p>
+      <p>Phone: (123) 456-7890</p>
+      <p>Address: 123 Luxury St, Spokane, WA</p>
+    </div>
+  </div>
+  <p>&copy; 2025 Amiri Luxury Autos. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Maintain separate current indices for each inventory box (14 boxes: indices 0 to 13)
+  let currentIndices = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  // Function to change images for a given inventory box
+  // Box indices: 0: M3, 1: M4, 2: G63, 3: S500, 4: R8, 5: RS7, 6: GT3 RS, 7: RR Cullinan, 8: RR Wraith, 9: Aventador, 10: Urus, 11: Bentley Flying Spur S, 12: SF90, 13: Ferrari 812.
+  function changeImage(direction, boxIndex) {
+    const box = document.querySelectorAll('.inventory-combined')[boxIndex];
+    const imgs = box.querySelectorAll('.car-images img');
+    let current = currentIndices[boxIndex];
+    imgs[current].style.display = 'none';
+    if (direction === 'left') {
+      current = (current - 1 + imgs.length) % imgs.length;
+    } else {
+      current = (current + 1) % imgs.length;
+    }
+    imgs[current].style.display = 'block';
+    currentIndices[boxIndex] = current;
+  }
+
+  // Function to apply filters
+  function applyFilter() {
+    let minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+    let maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+    let brand = document.getElementById('brandFilter').value;
+    let seats = document.getElementById('seatsFilter').value;
+    
+    let boxes = document.querySelectorAll('.inventory-combined');
+    boxes.forEach(box => {
+      let boxPrice = parseFloat(box.getAttribute('data-price'));
+      let boxBrand = box.getAttribute('data-brand');
+      let boxSeats = box.getAttribute('data-seats');
+      
+      let priceMatch = (boxPrice >= minPrice && boxPrice <= maxPrice);
+      let brandMatch = (brand === "all" || boxBrand === brand);
+      let seatsMatch = (seats === "all" || boxSeats === seats);
+      
+      // Hide the parent column if not matching, else show it.
+      if (priceMatch && brandMatch && seatsMatch) {
+        box.parentElement.style.display = "block";
+      } else {
+        box.parentElement.style.display = "none";
+      }
+    });
+  }
+
+  // Function to reset filters
+  function resetFilter() {
+    document.getElementById('minPrice').value = "";
+    document.getElementById('maxPrice').value = "";
+    document.getElementById('brandFilter').value = "all";
+    document.getElementById('seatsFilter').value = "all";
+    
+    // Show all inventory items.
+    let boxes = document.querySelectorAll('.inventory-combined');
+    boxes.forEach(box => {
+      box.parentElement.style.display = "block";
+    });
+  }
+</script>
+</body>
+</html>
